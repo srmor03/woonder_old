@@ -1,0 +1,134 @@
+html
+  borderBox()
+  clearfix()
+
+.grid
+  grid()
+
+  // Gaps between all grid elements
+  &_gap_
+    for num in (0..8)
+      &{num}
+        grid-gap(num * 0.25rem)
+  // Gaps between all elements of a nested grid
+  &_is_nestted
+    &.grid_gap_
+      for num in (0..8)
+        &{num}
+          grid-gap2(num * 0.25rem)
+    .grid__row
+      &_gap_
+        for num in (0..8)
+          &{num}
+            row-gap(num * 0.25rem)
+  // The all columns in the all rows are located from left to right.
+  &_direction_right
+    .grid__row
+      flex-direction: row
+  // The all columns in the all rows are located from right to left.
+  &_direction_left
+    .grid__row
+      flex-direction: row-reverse
+
+  &__row
+    grid-row()
+
+    // Gaps between all collumns of the row
+    &_gap_
+      for num in (0..8)
+        &{num}
+          row-gap(num * 0.25rem)
+
+    // The all columns in the row are located from left to right.
+    &_direction_right
+      flex-direction row !important
+
+    // The all columns in the row are located from right to left.
+    &_direction_left
+      flex-direction row-reverse !important     
+
+  &__col
+    grid-col()
+// Mesh column sizes for screens of different sizes
+for size in $col-sizes
+  grid-col-size(size)
+
+// Classes of moving columns to the right and left
+for dir in $move-dir
+  for size in $col-sizes
+    grid-col-move(size, dir)
+
+// Column offset classes
+for dir in $move-dir
+  for size in $col-sizes
+    grid-col-offset(size, dir)
+//Hidden on small screen
+@media (max-width: $screen-max_size_sm)
+  .grid__col_hidden,
+  .grid__row_hidden,
+  .grid_hidden
+    &_sm,
+    &_md-narrower,
+    &_lg-narrower,
+    &_xl-narrower,
+    &_xxl-narrower
+      display none !important
+// Hidden on medium screen
+@media (min-width: $screen-min_size_md) and (max-width: $screen-max_size_md)
+  .grid__col_hidden,
+  .grid__row_hidden,
+  .grid_hidden
+    &_md,
+    &_md-wider,
+    &_md-narrower,
+    &_lg-narrower,
+    &_xl-narrower,
+    &_xxl-narrower
+      display none !important
+// Hidden on large
+@media (min-width: $screen-min_size_lg) and (max-width: $screen-max_size_lg)
+  .grid__col_hidden,
+  .grid__row_hidden,
+  .grid_hidden
+    &_md-wider,
+    &_lg,
+    &_lg-wider,
+    &_lg-narrower,
+    &_xl-narrower,
+    &_xxl-narrower
+      display none !important
+// Hidden on extra large
+@media (min-width: $screen-min_size_xl) and (max-width: $screen-max_size_xl)
+  .grid__col_hidden,
+  .grid__row_hidden,
+  .grid_hidden
+    &_md-wider,
+    &_lg-wider,
+    &_xl,
+    &_xl-wider,
+    &_xl-narrower,
+    &_xxl-narrower 
+      display none !important
+// Hidden on extra extra large
+@media (min-width: $screen-min_size_xxl) and (max-width: $screen-max_size_xxl)
+  .grid__col_hidden,
+  .grid__row_hidden,
+  .grid_hidden
+    &_md-wider,
+    &_lg-wider,
+    &_xl-wider,
+    &_xxl,
+    &_xxl-wider,
+    &_xxl-narrower
+      display none !important
+// Hidden on extra extra extra large
+@media (min-width: $screen-min_size_xxxl)
+  .grid__col_hidden,
+  .grid__row_hidden,
+  .grid_hidden
+    &_md-wider,
+    &_lg-wider,
+    &_xl-wider,
+    &_xxl-wider,
+    &_xxxl
+      display none !important

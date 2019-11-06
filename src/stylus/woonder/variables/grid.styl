@@ -1,0 +1,42 @@
+$default-column-gap = .75rem
+
+// Minimum widths for each breakpoint.
+$screen-min_size_sm = 320px;
+$screen-min_size_md = 480px;
+$screen-min_size_lg = 640px;
+$screen-min_size_xl = 1024px;
+$screen-min_size_xxl = 1366px;
+$screen-min_size_xxxl = 1920px;
+$screen-min_size_4xl = 2048px;
+$screen-min_size_5xl = 3840px;
+$screen-min_size_6xl = 5120px;
+
+$screen-min_sizes = {
+    sm: $screen-min_size_sm, 
+    md: $screen-min_size_md, 
+    lg: $screen-min_size_lg, 
+    xl: $screen-min_size_xl, 
+    xxl: $screen-min_size_xxl, 
+    xxxl: $screen-min_size_xxxl
+}
+// Maximum widths for each breakpoint. 
+$screen-max_size_sm = ($screen-min_size_md - 0.1);
+$screen-max_size_md = ($screen-min_size_lg - 0.1);
+$screen-max_size_lg = ($screen-min_size_xl - 0.1);
+$screen-max_size_xl = ($screen-min_size_xxl - 0.1);
+$screen-max_size_xxl = ($screen-min_size_xxxl - 0.1);
+
+$screen-max_sizes = $screen-max_size_sm, $screen-max_size_md, $screen-max_size_lg, $screen-max_size_xl, $screen-max_size_xxl
+
+// Sizes vals
+$col-sizes = sm, md, lg, xl, xxl, xxxl
+
+// Variables for moving columns
+$move-vals = 8.333333333333332%, 16.666666666666664%, 25%, 33.33333333333333%, 41.66666666666667%, 50%, 58.333333333333336%, 66.66666666666666%, 75%, 83.33333333333334%, 91.66666666666666%, 100%
+$move-dir = right, left
+
+//Variables for column offset
+$offset-vals = 0, 8.333333333333332%, 16.666666666666664%, 25%, 33.33333333333333%, 41.66666666666667%, 50%, 58.333333333333336%, 66.66666666666666%, 75%, 83.33333333333334%, 91.66666666666666%
+
+// Variables for grid size
+$grid-vals = $move-vals
